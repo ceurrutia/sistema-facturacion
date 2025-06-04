@@ -106,3 +106,15 @@ SHOW PROCEDURE STATUS WHERE Db = 'FacturacionDB';
 -- ejecutar el procedure
 
 CALL ReporteFacturacionMensual();
+
+-- Agreagr nueva columna a Clientes si es o no cliente activo
+
+ALTER TABLE Clientes
+ADD COLUMN activo BOOLEAN DEFAULT True;
+
+UPDATE Clientes
+SET activo TRUE;
+
+-- Chequeae columna
+
+SELECT nombre, ciudad, activo FROM Clientes;
